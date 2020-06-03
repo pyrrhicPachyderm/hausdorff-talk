@@ -38,6 +38,15 @@
 \addbibresource{references.bib}
 \setbeamertemplate{navigation symbols}{}
 
+%Remove numbers from footcite.
+\let\innerfootcite\footcite
+\renewcommand\footcite[1]{%
+	\begingroup
+	\renewcommand\thefootnote{}\innerfootcite{#1}%
+	\addtocounter{footnote}{-1}%
+	\endgroup
+}
+
 \title{The Hausdorff Metric}
 \subtitle{A Dissimilarity Metric for Partially Ranked Data}
 \author{Christopher Brown}
