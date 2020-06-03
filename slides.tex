@@ -31,6 +31,10 @@
 %Need this so that mathrm isn't serif, 'cause the rest of the beamer stuff is sans.
 \renewcommand\mathrm[1]{\text{#1}}
 
+\usepackage[backend=biber,style=verbose]{biblatex}
+\addbibresource{references.bib}
+\setbeamertemplate{navigation symbols}{}
+
 \title{The Hausdorff Metric}
 \subtitle{A Dissimilarity Metric for Partially Ranked Data}
 \author{Christopher Brown}
@@ -60,6 +64,10 @@
 		500 & $\geq500$\\
 		\bottomrule
 	\end{tabular}
+\end{frame}
+
+\begin{frame}
+	\printbibliography
 \end{frame}
 
 \end{document}

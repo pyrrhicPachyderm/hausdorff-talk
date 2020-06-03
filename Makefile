@@ -6,7 +6,7 @@ doc := slides
 
 all: $(doc).pdf
 
-$(doc).pdf: $(doc).tex
+$(doc).pdf: $(doc).tex references.bib
 	latexmk $(LATEXMK_FLAGS) --jobname="$(basename $@)" $<
 
 clean: clean_latex
@@ -16,6 +16,7 @@ clean_latex:
 		$(RM) **/*.pdf;\
 		$(RM) **/*.aux **/*.log **/*.fls **/*.out;\
 		$(RM) **/*.fdb_latexmk;\
+		$(RM) **/*.bbl **/*.bcf **/*.blg **/*.run.xml;\
 		$(RM) **/*.nav **/*.snm **/*.toc;\
 	)
 

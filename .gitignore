@@ -5,6 +5,14 @@
 *.out
 *.fls
 *.fdb_latexmk
+
+#BibLaTeX files
+*.bbl
+*.bcf
+*.blg
+*.run.xml
+
+#Beamer files
 *.nav
 *.snm
 *.toc
