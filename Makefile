@@ -23,7 +23,7 @@ $(subdir)/figures/%: $(subdir)/Makefile
 #Document.
 ##########
 
-images := $(patsubst %.svg,%.png,$(wildcard images/*.svg))
+images := $(patsubst %.svg,%.png,$(wildcard images/*.svg)) $(subdir)/figures/site-ordination.pdf
 
 $(doc).pdf: $(doc).tex references.bib $(images)
 	latexmk $(LATEXMK_FLAGS) --jobname="$(basename $@)" $<
