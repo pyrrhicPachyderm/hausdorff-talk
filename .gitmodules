@@ -1,0 +1,3 @@
+[submodule "biol375-report"]
+	path = biol375-report
+	url = https://github.com/pyrrhicPachyderm/biol375-report.git
