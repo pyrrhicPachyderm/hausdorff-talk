@@ -32,3 +32,16 @@ spellcheck:
 	@for file in $(aspell_check_files); do \
 		aspell check --mode=tex --tex-check-comments --dont-backup --personal=$(aspell_personal_dict) $$file;\
 	done
+
+##########
+#Submodule
+##########
+
+subdir := biol375-report
+submake := make -C $(subdir)
+
+$(subdir)/Makefile:
+	git submodule update --init --recursive
+
+$(subdir)/figures/%: $(subdir)/Makefile
+	$(submake)
