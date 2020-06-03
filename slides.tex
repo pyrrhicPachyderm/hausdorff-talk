@@ -1,0 +1,44 @@
+\documentclass[pdf,usenames,dvipsnames,tikz]{beamer}%usenames and dvipsnames are for colours.
+%TODO: Maybe use aspectratio=169
+\mode<presentation>{}
+\usetheme{Madrid}
+\usecolortheme{seahorse}
+
+\usepackage{amsmath}
+\usepackage{siunitx}
+\usepackage{enumerate}
+
+%Localisation
+\usepackage{csquotes} %Context sensitive quotes: recommended by babel polyglossia
+\usepackage[british]{babel}
+
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true,
+	urlcolor=blue,
+}
+\urlstyle{same} %URLs are set in the font of the surrounding text
+
+%Generic math commands
+\newcommand\norm[1]{\left\lVert#1\right\rVert}
+\newcommand\abs[1]{\left\lvert#1\right\rvert}
+\renewcommand\d{\mathrm{d}}
+\newcommand\D[1]{\mathop{\d #1}}
+\newcommand\e{\mathrm{e}}
+\newcommand\Imat{\mathrm{I}}
+%Need this so that mathrm isn't serif, 'cause the rest of the beamer stuff is sans.
+\renewcommand\mathrm[1]{\text{#1}}
+
+\title{The Hausdorff Metric}
+\subtitle{A Dissimilarity Metric for Partially Ranked Data}
+\author{Christopher Brown}
+\date{}
+
+\begin{document}
+
+%Title frame
+\begin{frame}
+	\titlepage
+\end{frame}
+
+\end{document}
