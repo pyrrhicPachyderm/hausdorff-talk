@@ -88,6 +88,25 @@
 	\end{tabular}
 \end{frame}
 
+\begin{frame}{Ranking}
+	\centering
+	\begin{tabular}{lllll}
+		\toprule
+		Species & A  & B  & C  & D \\
+		Score   & 1  & 20 & 0  & 5 \\
+		\bottomrule
+	\end{tabular}
+	
+	\bigskip\bigskip
+	
+	\begin{tikzpicture}[node distance=0.2cm]
+		\node (a1)               {C};
+		\node (a2) [right=of a1] {A};
+		\node (a3) [right=of a2] {D};
+		\node (a4) [right=of a3] {B};
+	\end{tikzpicture}
+\end{frame}
+
 \begin{frame}
 	\printbibliography
 \end{frame}
