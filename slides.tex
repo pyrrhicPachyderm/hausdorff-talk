@@ -184,6 +184,62 @@
 	\includegraphics[width=0.6\textwidth]{hausdorff}
 \end{frame}
 
+\begin{frame}{Hausdorff Edit Distance}
+	\centering
+	\begin{tabular}{cc}
+		\begin{tabular}{lcccc}
+			\toprule
+			Species & A  & B  & C  & D \\
+			Score   & 1  & 5  & 0  & 5 \\
+			\bottomrule
+		\end{tabular}
+		
+		\bigskip\bigskip
+		
+		&
+		
+		\begin{tabular}{lcccc}
+			\toprule
+			Species & A  & B  & C  & D \\
+			Score   & 5  & 1  & 0  & 5 \\
+			\bottomrule
+		\end{tabular}
+		
+		\bigskip\bigskip
+		
+		\\
+		
+		\begin{tikzpicture}[node distance=0.2cm]
+			\node (a1)               {C};
+			\node (a2) [right=of a1] {A};
+			\node (a3) [right=of a2] {B};
+			\node (a4) [right=of a3] {D};
+			
+			\node (b1) [below=of a1] {C};
+			\node (b2) [right=of b1] {A};
+			\node (b3) [right=of b2] {D};
+			\node (b4) [right=of b3] {B};
+			\node (b)  [left=of  b1] {or};
+		\end{tikzpicture}
+		
+		&
+		
+		\begin{tikzpicture}[node distance=0.2cm]
+			\node (a1)               {C};
+			\node (a2) [right=of a1] {B};
+			\node (a3) [right=of a2] {A};
+			\node (a4) [right=of a3] {D};
+			
+			\node (b1) [below=of a1] {C};
+			\node (b2) [right=of b1] {B};
+			\node (b3) [right=of b2] {D};
+			\node (b4) [right=of b3] {A};
+			\node (b)  [left=of  b1] {or};
+		\end{tikzpicture}
+	\end{tabular}
+	\footcite{critchlow}
+\end{frame}
+
 \begin{frame}
 	\printbibliography
 \end{frame}
