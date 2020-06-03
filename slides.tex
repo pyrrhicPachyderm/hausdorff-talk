@@ -13,7 +13,7 @@
 \usepackage[british]{babel}
 
 \usepackage{tikz}
-\usetikzlibrary{positioning}
+\usetikzlibrary{positioning,arrows}
 
 \usepackage{hyperref}
 \hypersetup{
@@ -106,6 +106,39 @@
 		\node (a4) [right=of a3] {B};
 		\node (a)  [left=of  a1] {Ranking:};
 	\end{tikzpicture}
+\end{frame}
+
+\begin{frame}{Edit Distance: Kendall's Tau}
+	\centering
+	
+	\begin{tikzpicture}[node distance=0.2cm]
+		\node (a1)               {C};
+		\node (a2) [right=of a1] {A};
+		\node (a3) [right=of a2] {D};
+		\node (a4) [right=of a3] {B};
+		\node (a)  [left=of  a1] {Plot 1:};
+		
+		\node (b1) [below=of a1] {A};
+		\node (b2) [right=of b1] {C};
+		\node (b3) [right=of b2] {D};
+		\node (b4) [right=of b3] {B};
+		
+		\node (c1) [below=of b1] {A};
+		\node (c2) [right=of c1] {D};
+		\node (c3) [right=of c2] {C};
+		\node (c4) [right=of c3] {B};
+		\node (c)  [left=of  c1] {Plot 2:};
+		
+		\draw [->] (a1) to (b2);
+		\draw [->] (a2) to (b1);
+		
+		\draw [->] (b2) to (c3);
+		\draw [->] (b3) to (c2);
+	\end{tikzpicture}
+	
+	\bigskip
+	
+	Dissimilarity of 2
 \end{frame}
 
 \begin{frame}
