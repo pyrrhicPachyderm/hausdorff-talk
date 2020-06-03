@@ -4,9 +4,26 @@ LATEXMK_FLAGS = --pdf --cd
 
 doc := slides
 
-images := $(patsubst %.svg,%.png,$(wildcard images/*.svg))
-
 all: $(doc).pdf
+
+###########
+#Submodule.
+###########
+
+subdir := biol375-report
+submake := make -C $(subdir)
+
+$(subdir)/Makefile:
+	git submodule update --init --recursive
+
+$(subdir)/figures/%: $(subdir)/Makefile
+	$(submake)
+
+##########
+#Document.
+##########
+
+images := $(patsubst %.svg,%.png,$(wildcard images/*.svg))
 
 $(doc).pdf: $(doc).tex references.bib $(images)
 	latexmk $(LATEXMK_FLAGS) --jobname="$(basename $@)" $<
@@ -43,16 +60,3 @@ spellcheck:
 	@for file in $(aspell_check_files); do \
 		aspell check --mode=tex --tex-check-comments --dont-backup --personal=$(aspell_personal_dict) $$file;\
 	done
-
-##########
-#Submodule
-##########
-
-subdir := biol375-report
-submake := make -C $(subdir)
-
-$(subdir)/Makefile:
-	git submodule update --init --recursive
-
-$(subdir)/figures/%: $(subdir)/Makefile
-	$(submake)
