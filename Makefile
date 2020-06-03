@@ -4,12 +4,14 @@ LATEXMK_FLAGS = --pdf --cd
 
 doc := slides
 
+images := $(patsubst %.svg,%.png,$(wildcard images/*.svg))
+
 all: $(doc).pdf
 
-$(doc).pdf: $(doc).tex references.bib
+$(doc).pdf: $(doc).tex references.bib $(images)
 	latexmk $(LATEXMK_FLAGS) --jobname="$(basename $@)" $<
 
-clean: clean_latex
+clean: clean_latex clean_images
 clean_latex:
 	@(\
 		shopt -s globstar;\
@@ -19,8 +21,16 @@ clean_latex:
 		$(RM) **/*.bbl **/*.bcf **/*.blg **/*.run.xml;\
 		$(RM) **/*.nav **/*.snm **/*.toc;\
 	)
+clean_latex:
+	@(\
+		shopt -s globstar;\
+		$(RM) **/*.png;\
+	)
 
-.PHONY: all submit clean clean_latex
+.PHONY: all submit clean clean_latex clean_images
+
+%.png: %.svg
+	inkscape -z $< -e $@ -w 1024 -h 1024
 
 ###############
 #Spellchecking.
