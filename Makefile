@@ -6,6 +6,8 @@ doc := slides
 
 all: $(doc).pdf
 
+.PHONY: all
+
 ###########
 #Submodule.
 ###########
@@ -44,7 +46,7 @@ clean_images:
 		$(RM) **/*.png;\
 	)
 
-.PHONY: all clean clean_latex clean_images
+.PHONY: clean clean_latex clean_images
 
 %.png: %.svg
 	inkscape -z $< -e $@ -w 1024 -h 1024
