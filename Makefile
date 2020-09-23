@@ -44,7 +44,7 @@ clean_images:
 		$(RM) **/*.png;\
 	)
 
-.PHONY: all submit clean clean_latex clean_images
+.PHONY: all clean clean_latex clean_images
 
 %.png: %.svg
 	inkscape -z $< -e $@ -w 1024 -h 1024
