@@ -62,3 +62,5 @@ spellcheck:
 	@for file in $(aspell_check_files); do \
 		aspell check --mode=tex --tex-check-comments --dont-backup --personal=$(aspell_personal_dict) $$file;\
 	done
+
+.PHONY: spellcheck
