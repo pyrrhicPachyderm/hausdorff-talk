@@ -38,7 +38,7 @@ clean_latex:
 		$(RM) **/*.bbl **/*.bcf **/*.blg **/*.run.xml;\
 		$(RM) **/*.nav **/*.snm **/*.toc;\
 	)
-clean_latex:
+clean_images:
 	@(\
 		shopt -s globstar;\
 		$(RM) **/*.png;\
